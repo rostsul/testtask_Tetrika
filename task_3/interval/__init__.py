@@ -3,6 +3,10 @@
 Rostislav Sulitskiy [https://github.com/rostsul]
 r.sulitskiy@gmail.com
 """
+from interval.interval import Interval
+from interval.intervals_list import IntervalsList
+
+
 __author__ = 'Rostislav Sulitskiy'
 __version__ = '0.0.1'
 

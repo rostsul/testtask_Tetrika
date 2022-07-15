@@ -15,8 +15,7 @@ tutor – интервалы присутствия учителя
 Нужно написать функцию, которая получает на вход словарь с интервалами и 
 возвращает время общего присутствия ученика и учителя на уроке (в секундах).
 """
-from interval.interval import Interval
-from interval.intervals_list import IntervalsList
+from interval import Interval, IntervalsList
 
 
 def appearance(intervals: dict[str, list[int]]) -> int:
