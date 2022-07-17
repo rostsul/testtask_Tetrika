@@ -17,15 +17,21 @@ class IntervalsList(object):
         intervals_list: хранит список целочисленных интервалов.
 
     Raises:
-        ValueError: при создании экземляра класса передан список list[int] из нечетного кол-ва элементов.
+        ValueError: при создании экземляра класса передан список list[int] из нечетного 
+            кол-ва элементов.
 
     Methods:
-        _build_intervals_list_from_int_list(self, points: list[int]) -> list[Interval]: Создаем список интервалов из целочисленного четного списка list[int] -> list[Interval];
+        _build_intervals_list_from_int_list(self, points: list[int]) -> list[Interval]: 
+            Создаем список интервалов из целочисленного четного списка list[int] -> list[Interval];
         validate_intervals_list(self) -> None: Проверяет список интервалов на наличие пересекающих интервалов;
-        align_start_intervals_list_by_interval(self, interval: Interval) -> None: Отбрасывает интервалы или выравнивает интервал в начале списка интервалов по указаному интервалу;
-        align_end_intervals_list_by_interval(self, interval: Interval) -> None: Отбрасывает интервалы или выравнивает интервал в конце списка интервалов по указаному интервалу;
-        align_intervals_list_by_interval(self, interval: Interval) -> None: Отбрасывает интервалы или выравнивает интервалы в начале и конце списка интервалов по указаному интервалу;
-        intersection(self, other: IntervalsList) -> None: Находит пересечение текущего экземляра IntervalsList с другим экземляром IntervalsList;
+        align_start_intervals_list_by_interval(self, interval: Interval) -> None: Отбрасывает интервалы или 
+            выравнивает интервал в начале списка интервалов по указаному интервалу;
+        align_end_intervals_list_by_interval(self, interval: Interval) -> None: Отбрасывает интервалы или 
+            выравнивает интервал в конце списка интервалов по указаному интервалу;
+        align_intervals_list_by_interval(self, interval: Interval) -> None: Отбрасывает интервалы или 
+            выравнивает интервалы в начале и конце списка интервалов по указаному интервалу;
+        intersection(self, other: IntervalsList) -> None: Находит пересечение текущего экземляра IntervalsList 
+            с другим экземляром IntervalsList;
         len_intervals(self) -> list[int]: Возвращает список с длиной каждого интервала в IntervalsList;
         sum_intervals(self) -> int: Возвращает общую длинну интервалов в IntervalsList (их сумму).
     """
@@ -37,7 +43,8 @@ class IntervalsList(object):
 
         Args:
             intervals (list[int]): целочисленный четный список list[int] интервалов упорядоченный по парам;
-            validate (bool): проверяет список интервалов после создания на наличие пересекающих интервалов. Defaults to True.
+            validate (bool): проверяет список интервалов после создания на наличие пересекающих интервалов. 
+                             Defaults to True.
         """
         self.intervals_list: list[Interval] = self._build_intervals_list_from_int_list(
             intervals)
@@ -48,7 +55,8 @@ class IntervalsList(object):
         """ Создаем список интервалов из целочисленного четного списка list[int] -> list[Interval].
 
         Args:
-            points (list[int]): список целочисленных значений int, обязательно должен содержать четное кол-во элементов.
+            points (list[int]): список целочисленных значений int, обязательно должен содержать 
+                                четное кол-во элементов.
 
         Raises:
             ValueError: передан список из нечетного кол-ва элементов. 
@@ -78,8 +86,9 @@ class IntervalsList(object):
                         self.intervals_list[i] != self.intervals_list[i+1]:
                     interval = Interval(min(self.intervals_list[i].start, self.intervals_list[i+1].start),
                                         max(self.intervals_list[i].end, self.intervals_list[i+1].end))
+                    self.intervals_list.pop(i + 1)
                     clear_intervals.append(interval)
-                    i += 2
+                    i += 1
                     validate = True
                 else:
                     clear_intervals.append(self.intervals_list[i])

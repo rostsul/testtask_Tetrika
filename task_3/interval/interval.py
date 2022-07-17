@@ -1,15 +1,16 @@
 """ Содержит классы для работы с интервалами.
 
     Classes:
-        Interval: используется для создания и работы с целочисленным интервалом (start: int, end: int)
+        Interval: используется для создания и работы с целочисленным интервалом [start: int, end: int]
 """
 from __future__ import annotations
 
 
 class Interval(object):
-    """Класс Interval используется для создания и работы с целочисленным интервалом (start: int, end: int).
+    """Класс Interval используется для создания и работы с целочисленным интервалом [start: int, end: int].
 
-    Основное применение - обработка целочисленных интервалов, например timestamp начала и конца какого либо действия.
+    Основное применение - обработка целочисленных интервалов, например timestamp начала и 
+    конца какого либо действия.
 
     Note:
         Содержит собственные методы для операций >, <, ==, !=, len(), str().
@@ -19,11 +20,11 @@ class Interval(object):
         end (int): конец интервала.
 
     Raises:
-        ValueError: Переданы некорректные значения начала и конца интервала при создании экземпляра класса;
-        TypeError: Выполнение операций >, <, ==, != и методов с экземпляром другого типа.
+        ValueError: Переданы некорректные значения начала и конца интервала при создании экземпляра класса.
 
     Methods:
-        intersection(interval_1: Interval, interval_2: Interval) -> Interval: Находит пересечение двух интервалов ввиде нового интервала или возвращает None. 
+        intersection(interval_1: Interval, interval_2: Interval) -> Interval: Находит пересечение двух 
+            интервалов ввиде нового интервала или возвращает None. 
     """
 
     __slots__ = ['start', 'end', ]
@@ -36,7 +37,8 @@ class Interval(object):
             end (int): конец интервала.
 
         Raises:
-            ValueError: Переданы некорректные значения начала и конца интервала (not int or end < start).
+            ValueError: Переданы некорректные значения начала и 
+                конца интервала (not int or end < start).
         """
         if end < start or not isinstance(start, int) or not isinstance(end, int):
             raise ValueError(
@@ -95,14 +97,15 @@ class Interval(object):
             interval_2 (Interval): экземляр класса Interval.
 
         Raises:
-            TypeError: возникает в случае если одно из переданых значений не является экземпляром класса Interval.
+            TypeError: возникает в случае если одно из переданых значений не является 
+                экземпляром класса Interval.
 
         Returns:
             Interval: если пересечение интервалов существует;
             None: если пересечения интервалов нет.
         """
         if not isinstance(interval_1, Interval) or not isinstance(interval_2, Interval):
-            raise TypeError(
+            raise ValueError(
                 f'Допускается поиск пересечения интервалов между собой.')
         if interval_1 < interval_2 or interval_1 > interval_2:
             return None

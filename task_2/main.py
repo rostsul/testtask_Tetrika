@@ -16,6 +16,13 @@
 Б: 412
 В: ...
 ...
+
+Решение:
+С помощью библиотеки requests получаем последовательно списки страниц в категории
+Животные по алфавиту от api ru.wikipedia.org. Чистим полученные данные, чтобы получить
+название животного в одно слово без прилагательных, фамилий и т.п. Список животных 
+записываем в файл (как пример) для дальнейшего использования. Считаем количество 
+животных на каждую букву алфавита и выводим на печать.
 """
 import os
 import re
@@ -34,7 +41,8 @@ def print_animals_by_letter_count():
 
 
 def count_animals_by_first_letter() -> Counter:
-    """ Читает список животных из файла и считает количество животных на каждую букву алфавита. """
+    """ Читает список животных из файла и считает количество животных 
+    на каждую букву алфавита. """
     count: Counter = Counter()
     with open(f'{os.getcwd()}/task_2/animals.list.txt', 'r', encoding='utf-8') as file:
         animals: list[str] = [animal for animal in file]
@@ -107,13 +115,16 @@ def animals_from_ruwiki() -> list[dict]:
 
 
 def animals_page_from_ruwiki(cmcontinue: str | None) -> dict:
-    """ Формирует набор аргументов для api и загружает первую или указанную в cmcontinue страницу категории Животные_по_алфавиту.
+    """ Формирует набор аргументов для api и загружает первую или указанную 
+    в cmcontinue страницу категории Животные_по_алфавиту.
 
     Note:
-        Судя по докуметации api ru.wikipedia.org список всех страниц в категории не получить, следующую страницу мы узнаем из полученной.
+        Судя по докуметации api ru.wikipedia.org список всех страниц в 
+        категории не получить, следующую страницу мы узнаем из полученной.
 
     Args:
-        cmcontinue (str | None, optional): следующая страница в категории. Defaults to None.
+        cmcontinue (str | None, optional): следующая страница в категории. 
+                                           Defaults to None.
     Returns:
         dict: страница с животными по алфавиту.
     """
@@ -130,7 +141,8 @@ def animals_page_from_ruwiki(cmcontinue: str | None) -> dict:
 
 
 def request_data_from_ruwiki(action: str, **kwargs) -> dict:
-    """ Запрашивает данные от api ru.wikipedia.org по указанному action и набору аргументов.
+    """ Запрашивает данные от api ru.wikipedia.org по указанному action 
+    и набору аргументов.
 
     Обертка для получения данных в формате json от api ru.wikipedia.org.
 
@@ -138,7 +150,8 @@ def request_data_from_ruwiki(action: str, **kwargs) -> dict:
         action (str): обязательный аргумент для api ru.wikipedia.org;
         **kwargs (dict[str, str]): прочие необязательные аргументы api endpoint.
     Raises:
-        Exception: в случае если сервер возвращает ошибку или возникает ошибка при обращении к серверу.
+        Exception: в случае если сервер возвращает ошибку или возникает ошибка 
+                   при обращении к серверу.
     Returns:
         dict: ответ от указанного api endpoint.
     """

@@ -6,6 +6,10 @@
 
 Найти индекс первого нуля (то есть найти такое место, 
 где заканчиваются единицы, и начинаются нули).
+
+Решение:
+Несколько примеров решения и timeit для выбора более эфективного.
+Лучше всего решать такие задачи через метод строки find().
 """
 import timeit
 
@@ -15,11 +19,10 @@ def example_1(array: str) -> int:
 
 
 def example_2(array: str) -> int:
-    s = bin(int(array[::-1], 2))
-    return len(s) - 2
+    return len(bin(int(array[::-1], 2))) - 2
 
 
-def example_3(array: str) -> int():
+def example_3(array: str) -> int:
     return array.count('1')
 
 
@@ -28,38 +31,32 @@ def example_4(array: str) -> int:
 
 
 def example_5(array: str) -> int:
-    return sum(array.split())
+    return sum([int(a) for a in array.split()])
 
 
 test_example_1 = """
-def example_1() -> int:
-    array = '111111111110000000000000000'
+def example_1(array = '111111111110000000000000000'):    
     return array.index('0')
 """
 
 test_example_2 = """
-def example_2():
-    array = '111111111110000000000000000'
-    s = bin(int(array[::-1], 2))
-    return len(s) - 2
+def example_2(array = '111111111110000000000000000'):
+    return len(bin(int(array[::-1], 2))) - 2
 """
 
 test_example_3 = """
-def example_3():
-    array = '111111111110000000000000000'
+def example_3(array = '111111111110000000000000000'):
     return array.count('1')
 """
 
 test_example_4 = """
-def example_4():
-    array = '111111111110000000000000000'
+def example_4(array = '111111111110000000000000000'):
     return array.find('0')
 """
 
 test_example_5 = """
-def example_5():
-    array = '111111111110000000000000000'
-    return sum(array.split())
+def example_5(array = '111111111110000000000000000'):
+    return sum([int(a) for a in array.split()])
 """
 
 
