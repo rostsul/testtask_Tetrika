@@ -5,10 +5,12 @@ name = "pypi"
 
 [packages]
 requests = "*"
+aiohttp = "*"
 
 [dev-packages]
 autopep8 = "*"
 mypy = "*"
+types-requests = "*"
 
 [requires]
 python_version = "3.10"
