@@ -18,7 +18,7 @@ cd testtask_Tetrika && python3.10 -m venv venv && source venv/bin/activate && pi
 Несколько примеров решения и timeit для выбора более эфективного.
 Лучше всего решать такие задачи через метод строки find().
 
-> python3.10 -m task_1/main.py
+> python3.10 task_1/main.py
 
 
 ## /task_2
@@ -47,7 +47,7 @@ cd testtask_Tetrika && python3.10 -m venv venv && source venv/bin/activate && pi
 записываем в файл (как пример) для дальнейшего использования. Считаем количество 
 животных на каждую букву алфавита и выводим на печать.
 
-> python3.10 -m task_2/main.py
+> python3.10 task_2/main.py
 
 ## /task_3
 ### Задача №3.
@@ -71,4 +71,4 @@ tutor – интервалы присутствия учителя
 интервалов (IntervalsList). Классы и их методы описаны в документации. Находим пересечение 
 интервалов и выводим общую длину пересечения.
 
-> python3.10 -m task_3/main.py
+> python3.10 task_3/main.py
