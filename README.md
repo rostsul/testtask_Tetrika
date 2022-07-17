@@ -1,9 +1,9 @@
 # Тестовое задание Онлайн-школа Тетрика
 ## Python 3.10
 
-> cd TESTTASK && pipenv install && pipenv shell
-OR
-> cd TESTTASK && python3.10 -m venv venv && source venv/bin/activate && pip install -r requirements.txt
+cd testtask_Tetrika && pipenv install && pipenv shell <br/>
+OR <br/>
+cd testtask_Tetrika && python3.10 -m venv venv && source venv/bin/activate && pip install -r requirements.txt <br/>
 
 ## /task_1
 ### Задача №1.
